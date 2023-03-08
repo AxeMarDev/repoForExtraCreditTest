@@ -113,6 +113,8 @@ class holder implements Serializable
     Doubleroom deluxe_doublerrom[]=new Doubleroom[20]; //Deluxe
     Singleroom luxury_singleerrom[]=new Singleroom[10]; //Luxury
     Singleroom deluxe_singleerrom[]=new Singleroom[20]; //Deluxe
+    Tripleroom luxury_Tripleroom[]=new Tripleroom[10];
+    Tripleroom deluxe_Tripleroom[]=new Tripleroom[20];
 }
 
 class Hotel
@@ -124,20 +126,32 @@ class Hotel
         String name, contact, gender;
         String name2 = null, contact2 = null; 
         String gender2="";
+
+        String name3 = null, contact3 = null; 
+        String gender3="";
+
+        
         System.out.print("\nEnter customer name: ");
         name = sc.next();
         System.out.print("Enter contact number: ");
         contact=sc.next();
         System.out.print("Enter gender: ");
         gender = sc.next();
-        if(i<3)
+        if(i==2)
         {
-        System.out.print("Enter second customer name: ");
-        name2 = sc.next();
-        System.out.print("Enter contact number: ");
-        contact2=sc.next();
-        System.out.print("Enter gender: ");
-        gender2 = sc.next();
+            System.out.print("Enter second customer name: ");
+            name2 = sc.next();
+            System.out.print("Enter contact number: ");
+            contact2=sc.next();
+            System.out.print("Enter gender: ");
+            gender2 = sc.next();
+        } else if (i>2){
+            System.out.print("Enter third customer name: ");
+            name3 = sc.next();
+            System.out.print("Enter contact number: ");
+            contact3=sc.next();
+            System.out.print("Enter gender: ");
+            gender3 = sc.next();
         }      
         
           switch (i) {
@@ -149,6 +163,9 @@ class Hotel
                 break;
             case 4:hotel_ob.deluxe_singleerrom[rn]=new Singleroom(name,contact,gender);
                 break;
+            case 5:hotel_ob.luxury_Tripleroom[rn]=new Tripleroom(name, contact, gender, name2, contact2, gender2, name3, contact3, gender3);
+                break;
+            case 6:hotel_ob.deluxe_Tripleroom[rn]=new Tripleroom(name, contact, gender, name2, contact2, gender2, name3, contact3, gender3);
             default:System.out.println("Wrong option");
                 break;
         }
@@ -265,6 +282,10 @@ class Hotel
             case 3:System.out.println("Number of single beds : 1\nAC : Yes\nFree breakfast : Yes\nCharge per day:2200  ");
                 break;
             case 4:System.out.println("Number of single beds : 1\nAC : No\nFree breakfast : Yes\nCharge per day:1200 ");
+                break;
+            case 5:System.out.println("Number of double beds : 1\nNumber of single beds : 1\nAC : Yes\nFree breakfast : Yes\nCharge per day:2200  ");
+                break;
+            case 6:System.out.println("Number of double beds : 1\nNumber of single beds : 1\nAC : No\nFree breakfast : Yes\nCharge per day:1200 ");
                 break;
             default:
                 System.out.println("Enter valid option");
@@ -546,15 +567,15 @@ public class Main {
         System.out.println("\nEnter your choice :\n1.Display room details\n2.Display room availability \n3.Book\n4.Order food\n5.Checkout\n6.Exit\n");
         ch = sc.nextInt();
         switch(ch){
-            case 1: System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room \n4.Deluxe Single Room\n");
+            case 1: System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room \n4.Deluxe Single Room \n5.Luxury Triple Room \n6.Deluxe Triple Room\n");
                     ch2 = sc.nextInt();
                     Hotel.features(ch2);
                 break;
-            case 2:System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room\n4.Deluxe Single Room\n");
+            case 2:System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room\n4.Deluxe Single Room \n5.Luxury Triple Room \n6.Deluxe Triple Room\n");
                      ch2 = sc.nextInt();
                      Hotel.availability(ch2);
                 break;
-            case 3:System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room\n4.Deluxe Single Room\n");
+            case 3:System.out.println("\nChoose room type :\n1.Luxury Double Room \n2.Deluxe Double Room \n3.Luxury Single Room\n4.Deluxe Single Room \n5.Luxury Triple Room \n6.Deluxe Triple Room\n");
                      ch2 = sc.nextInt();
                      Hotel.bookroom(ch2);                     
                 break;
